@@ -1,10 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Layout from './components/Layout';
 import './Asset/boxicons-2.1.2/css/boxicons.min.css';
 import './sass/index.scss';
-const root = document.getElementById('root');
+const container = document.getElementById('root');
+const root = createRoot(container);
 function App() {
   return <Layout></Layout>;
 }
-ReactDOM.render(<App />, root);
+root.render(<App/>);
