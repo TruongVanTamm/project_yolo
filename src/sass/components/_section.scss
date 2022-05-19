@@ -8,6 +8,7 @@
     text-transform: capitalize;
     text-align: center;
     font-weight: 600;
+    color: $main-color;
   }
   @include mobile{
     font-size: 1.8rem;

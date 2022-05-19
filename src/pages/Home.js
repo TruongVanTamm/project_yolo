@@ -8,9 +8,9 @@ import Section, { SectionBody, SectionTitle } from '../components/Section';
 import PolicyCard from '../components/PolicyCard';
 import Grid from '../components/Grid';
 import ProductCard from '../components/ProductCard';
-import Button from '../components/Button';
 import banner from '../Asset/images/banner.png';
 import { Link } from 'react-router-dom';
+import ButtonSTT from '../components/ButtonSTT';
 const Home = () => {
   return (
     <Helmet title="Trang chủ">
@@ -51,8 +51,8 @@ const Home = () => {
         <SectionBody>
           <Grid
             col={4}
-            mdCol={2}
-            smCol={1}
+            mdCol={3}
+            smCol={2}
             gap={20}
           >
             {productData.getProducts(4).map((item, index) => {
@@ -79,12 +79,12 @@ const Home = () => {
         <SectionTitle>sản phẩm mới </SectionTitle>
         <SectionBody>
           <Grid
-            col={4}
-            mdCol={2}
-            smCol={1}
+            col={5}
+            mdCol={3}
+            smCol={2}
             gap={20}
           >
-            {productData.getProducts(8).map((item, index) => {
+            {productData.getProducts(10).map((item, index) => {
               return (
                 <ProductCard
                   key={index}
@@ -101,7 +101,7 @@ const Home = () => {
             })}
           </Grid>
 
-          <Button icon="bx bx-cart"> Tải thêm sản phẩm</Button>
+          <button className="btn-load-more">Tải thêm sản phẩm</button>
         </SectionBody>
       </Section>
       {/* ----------------------------------------- New Product------------------------------------- */}
@@ -120,12 +120,12 @@ const Home = () => {
         <SectionTitle>phổ biến </SectionTitle>
         <SectionBody>
           <Grid
-            col={4}
-            mdCol={2}
-            smCol={1}
+            col={5}
+            mdCol={3}
+            smCol={2}
             gap={20}
           >
-            {productData.getProducts(8).map((item, index) => {
+            {productData.getProducts(10).map((item, index) => {
               return (
                 <ProductCard
                   key={index}
@@ -136,15 +136,14 @@ const Home = () => {
                   slug={item.slug}
                   img01={item.image01}
                   img02={item.image02}
-                  index={index}
                 ></ProductCard>
               );
             })}
           </Grid>
-
-          <Button icon="bx bx-cart"> Tải thêm sản phẩm</Button>
+          <button className="btn-load-more">Tải thêm sản phẩm</button>
         </SectionBody>
       </Section>
+      <ButtonSTT></ButtonSTT>
     </Helmet>
   );
 };

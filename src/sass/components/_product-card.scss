@@ -4,12 +4,14 @@
   position: relative;
   padding-bottom: 50px;
   &__img {
-    padding-top: 100%;
+    padding-top: 140%;
     position: relative;
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     transition: transform 0.5s ease;
     img {
+      height: 100%;
+      width: 100%;
       box-shadow: $box-shadow;
       position: absolute;
       top: 0;
@@ -17,7 +19,7 @@
       transform: translateX(-50%);
       height: 100%;
       &:nth-child(1) {
-        transform: translateX(-50%) scale(1) ;
+        transform: translateX(-50%) scale(1);
       }
       &:nth-child(2) {
         transform: translateX(-50%) scale(0);
@@ -27,9 +29,8 @@
       }
     }
     &:hover {
-      transform:scale( 1.05)
+      transform: scale(1.05);
     }
-
   }
   &__choice {
     @include flex(center, center);
@@ -37,7 +38,7 @@
     gap: 20px;
     position: absolute;
     bottom: 0;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     &__option {
       width: 40px;
@@ -56,11 +57,17 @@
     color: $text-main-color;
     margin-bottom: 12px;
     font-weight: normal;
+    min-height: 40px;
   }
   &__price {
     font-size: 1.4rem;
     color: $main-color;
-    margin: 8px;
+    margin-bottom: 8px;
+    @include tabletPro {
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+    }
     &__old {
       margin-right: 10px;
       color: $text-second-color;
@@ -74,11 +81,17 @@
     width: 45px;
     height: 20px;
     position: absolute;
-    top: 2%;
-    left: 13%;
+    top: 1%;
+    left: -4%;
     font-weight: bold;
+    @include tabletPro {
+      left: -8%;
+    }
+    @include tablet {
+      left: -5%;
+    }
     @include mobile {
-      left: 14%;
+      left:-7%;
     }
     &::after {
       content: '';
@@ -110,13 +123,13 @@
     cursor: pointer;
     position: absolute;
     top: 1%;
-    right: 18%;
+    right: 4%;
     font-size: 2.5rem;
     color: red;
     background-color: white;
-    border-radius:50%;
+    border-radius: 50%;
     width: 35px;
-    height:35px;
-    @include flex(center, center)
+    height: 35px;
+    @include flex(center, center);
   }
 }
