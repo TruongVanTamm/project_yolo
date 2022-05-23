@@ -1,50 +1,56 @@
 .catalog {
   @include flex(flex-start, flex-start);
 
-
   @include tablet {
     flex-direction: column;
   }
-
   &__filter {
     width: 30%;
     @include flex(flex-start, flex-start);
     flex-wrap: wrap;
+    ::-webkit-scrollbar {
+      display: none;
+    }
     @include tablet {
-      width: 40%;
+      background-color: transparent;
+      width: 100%;
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
       height: 100vh;
-      background-color: $main-bg;
+      // background-color: $main-bg;
       padding: 1rem;
+      padding-top: 0;
       position: fixed;
       left: 0;
       top: $header-tablet-height;
-      z-index: 100;
-      box-shadow: $box-shadow;
+      z-index: 99;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
-      overflow:auto;
+      overflow: auto;
     }
-
     @include mobile {
       top: 0;
-      width: 55%;
+      width: 100%;
+      padding: 0;
     }
 
     &.active {
       transform: translateX(0);
     }
-
+    &__widget:last-child{
+      flex-grow: 1;
+    }
     &__widget {
-      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      padding-left: 1rem;
       width: 50%;
-      @include tablet{
-        width: 100%;
+      @include tablet {
+        width: 50%;
+        background-color: #fff;
       }
-      @include mobile{
-        width: 100%;
+      @include mobile {
+        width: 50%;
       }
       &__title {
         font-size: 1.8rem;
@@ -67,9 +73,12 @@
     &__close {
       display: none;
       @include tablet {
+        padding-left: 1rem;
         display: block;
-        font-size: 2rem;
-        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+        width: 50%;
+        background-color: #fff;
       }
     }
   }

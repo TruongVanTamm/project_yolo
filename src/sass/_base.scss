@@ -97,10 +97,10 @@ a {
   padding: 0 100px;
   margin: auto;
   @include tablet {
-    padding: 0 20px;
+    padding: 0 25px;
   }
   @include mobile {
-    padding: 0 10px;
+    padding: 0 18px;
   }
 }
 .main {

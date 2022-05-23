@@ -1,9 +1,8 @@
 .section {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
   & > * ~ * {
     margin-top: 40px;
   }
-  overflow: hidden;
   &__title {
     font-size: 3rem;
     text-transform: capitalize;

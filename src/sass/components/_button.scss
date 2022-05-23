@@ -39,11 +39,9 @@
   }
   &-animate:hover &__text {
     transform: translateX(-100%);
-    &-sm {
-      font-size: 1rem;
-    }
   }
   &-sm &__text {
-    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    padding: 1rem 1.2rem;
   }
 }
