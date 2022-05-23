@@ -30,7 +30,7 @@
       overflow: auto;
     }
     @include mobile {
-      top: 0;
+      top:$header-mobile-height;
       width: 100%;
       padding: 0;
     }
