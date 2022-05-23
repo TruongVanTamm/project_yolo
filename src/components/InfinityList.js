@@ -27,7 +27,6 @@ const InfinityList = (props) => {
           window.scrollY + window.innerHeight >=
           listRef.current.clientHeight + listRef.current.offsetTop + 200
         ) {
-          console.log('bottom reach');
           setLoad(true);
         }
       }
@@ -50,8 +49,8 @@ const InfinityList = (props) => {
     getItems();
     setLoad(false);
   }, [load, index, data, props.data]);
-
   return (
+    
     <div ref={listRef}>
       <Grid
         col={4}

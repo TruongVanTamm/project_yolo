@@ -5,67 +5,73 @@
     flex-direction: column;
   }
   &__filter::-webkit-scrollbar {
-    display: none; 
+    display: none;
   }
+  height: calc(100vh- $header-tablet-height);
   &__filter {
     width: 30%;
     @include flex(flex-start, flex-start);
     flex-wrap: wrap;
+    overflow: auto;
     @include tablet {
-      background-color: transparent;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      height: 100vh;
-      // background-color: $main-bg;
+      width: 40%;
+      height: 100%;
+      background-color: $main-bg;
       padding: 1rem;
       padding-top: 0;
       position: fixed;
       left: 0;
       top: $header-tablet-height;
       z-index: 99;
-      transform: translateX(-100%);
+      transform: translateY(-100%);
       transition: transform 0.3s ease;
-      overflow: auto;
+      z-index: 98;
     }
     @include mobile {
-      top: 0;
+      top: $header-mobile-height;
       width: 100%;
-      padding: 0;
     }
 
     &.active {
-      transform: translateX(0);
+      transform: translateY(0);
     }
-    &__widget:last-child{
+    &__widget:last-child {
       flex-grow: 1;
+      @include mobile {
+        @include flex(center, flex-start);
+      }
     }
     &__widget {
-      padding-bottom: 1rem;
       padding-left: 1rem;
+      @include tablet{
+        margin-top: 4rem;
+      }
       width: 50%;
-      @include tablet {
-        width: 50%;
-        background-color: #fff;
-      }
-      @include mobile {
-        width: 50%;
-      }
       &__title {
         font-size: 1.8rem;
         font-weight: 600;
         text-transform: capitalize;
-        margin-bottom: 16px;
         color: $main-color;
+        min-height:60px;
       }
 
       &__content {
         font-size: 1.6rem;
         color: $text-second-color;
-
         &__item {
           margin-bottom: 13px;
+        }
+        &__btnfilter{
+          display: none;
+          @include tablet{
+           
+            margin-bottom: 10px;
+            display: block;
+          }
+          @include mobile{
+            margin-top: 10px;
+            margin-right: 10px;
+          }
         }
       }
     }
@@ -76,15 +82,14 @@
         padding-left: 1rem;
         display: block;
         font-size: 2.5rem;
-        padding-bottom: 1rem;
-        width: 50%;
         background-color: #fff;
+        position: absolute;
       }
     }
   }
 
   &__content {
-    flex-grow: 1;
+    width: 70%;
 
     @include tablet {
       width: 100%;
@@ -93,8 +98,8 @@
 
   &__filter__toggle {
     display: none;
-
     @include tablet {
+      z-index: 97;
       display: block;
       margin-bottom: 2rem;
     }

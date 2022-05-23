@@ -9,7 +9,7 @@ import colors from '../Asset/fake-data/product-color';
 import size from '../Asset/fake-data/product-size';
 import Button from '../components/Button';
 import InfinityList from '../components/InfinityList';
-
+import ButtonSTT from '../components/ButtonSTT';
 const Catalog = () => {
   const initFilter = {
     category: [],
@@ -77,7 +77,6 @@ const Catalog = () => {
   };
 
   const clearFilter = () => setFilter(initFilter);
-
   const updateProducts = useCallback(() => {
     let temp = productList;
 
@@ -108,7 +107,10 @@ const Catalog = () => {
 
   const filterRef = useRef(null);
 
-  const showHideFilter = () => filterRef.current.classList.toggle('active');
+  const showHideFilter = () => {
+    filterRef.current.classList.toggle('active');
+  };
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -116,104 +118,115 @@ const Catalog = () => {
     });
   }, []);
   return (
-    <Helmet title="Sản phẩm">
-      <div className="catalog">
-        <div
-          className="catalog__filter"
-          ref={filterRef}
-        >
+    <>
+      <Helmet title="Sản phẩm">
+        <div className="catalog">
           <div
-            className="catalog__filter__close"
-            onClick={() => showHideFilter()}
+            className="catalog__filter"
+            ref={filterRef}
           >
-            <i className="bx bx-left-arrow-alt"></i>
-          </div>
-          <div className="catalog__filter__widget">
-            <div className="catalog__filter__widget__title">
-              danh mục sản phẩm
+            <div
+              className="catalog__filter__close"
+              onClick={() => showHideFilter()}
+            >
+              <i className="bx bx-up-arrow-alt"></i>
             </div>
-            <div className="catalog__filter__widget__content">
-              {category.map((item, index) => (
-                <div
-                  key={index}
-                  className="catalog__filter__widget__content__item"
-                >
-                  <CheckBox
-                    label={item.display}
-                    onChange={(input) =>
-                      filterSelect('CATEGORY', input.checked, item)
-                    }
-                    checked={filter.category.includes(item.categorySlug)}
-                  />
-                </div>
-              ))}
+            <div className="catalog__filter__widget">
+              <div className="catalog__filter__widget__title">
+                danh mục sản phẩm
+              </div>
+              <div className="catalog__filter__widget__content">
+                {category.map((item, index) => (
+                  <div
+                    key={index}
+                    className="catalog__filter__widget__content__item"
+                  >
+                    <CheckBox
+                      label={item.display}
+                      onChange={(input) =>
+                        filterSelect('CATEGORY', input.checked, item)
+                      }
+                      checked={filter.category.includes(item.categorySlug)}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="catalog__filter__widget">
-            <div className="catalog__filter__widget__title">màu sắc</div>
-            <div className="catalog__filter__widget__content">
-              {colors.map((item, index) => (
-                <div
-                  key={index}
-                  className="catalog__filter__widget__content__item"
+            <div className="catalog__filter__widget">
+              <div className="catalog__filter__widget__title">màu sắc</div>
+              <div className="catalog__filter__widget__content">
+                {colors.map((item, index) => (
+                  <div
+                    key={index}
+                    className="catalog__filter__widget__content__item"
+                  >
+                    <CheckBox
+                      label={item.display}
+                      onChange={(input) =>
+                        filterSelect('COLOR', input.checked, item)
+                      }
+                      checked={filter.color.includes(item.color)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="catalog__filter__widget">
+              <div className="catalog__filter__widget__title">kích cỡ</div>
+              <div className="catalog__filter__widget__content">
+                {size.map((item, index) => (
+                  <div
+                    key={index}
+                    className="catalog__filter__widget__content__item"
+                  >
+                    <CheckBox
+                      label={item.display}
+                      onChange={(input) =>
+                        filterSelect('SIZE', input.checked, item)
+                      }
+                      checked={filter.size.includes(item.size)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="catalog__filter__widget">
+              <div className="catalog__filter__widget__content catalog__filter__widget__content__btnfilter">
+                <Button
+                  size="sm"
+                  onClick={showHideFilter}
                 >
-                  <CheckBox
-                    label={item.display}
-                    onChange={(input) =>
-                      filterSelect('COLOR', input.checked, item)
-                    }
-                    checked={filter.color.includes(item.color)}
-                  />
-                </div>
-              ))}
+                  Lọc
+                </Button>
+              </div>
+              <div className="catalog__filter__widget__content">
+                <Button
+                  size="sm"
+                  onClick={clearFilter}
+                >
+                  xóa bộ lọc
+                </Button>
+              </div>
             </div>
           </div>
-
-          <div className="catalog__filter__widget">
-            <div className="catalog__filter__widget__title">kích cỡ</div>
-            <div className="catalog__filter__widget__content">
-              {size.map((item, index) => (
-                <div
-                  key={index}
-                  className="catalog__filter__widget__content__item"
-                >
-                  <CheckBox
-                    label={item.display}
-                    onChange={(input) =>
-                      filterSelect('SIZE', input.checked, item)
-                    }
-                    checked={filter.size.includes(item.size)}
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="catalog__filter__toggle">
+            <Button
+              size="sm"
+              onClick={() => showHideFilter()}
+            >
+              bộ lọc
+            </Button>
           </div>
-
-          <div className="catalog__filter__widget">
-            <div className="catalog__filter__widget__content">
-              <Button
-                size="sm"
-                onClick={clearFilter}
-              >
-                xóa bộ lọc
-              </Button>
-            </div>
+          <div className="catalog__content">
+            <InfinityList data={products}></InfinityList>
           </div>
         </div>
-        <div className="catalog__filter__toggle">
-          <Button
-            size="sm"
-            onClick={() => showHideFilter()}
-          >
-            bộ lọc
-          </Button>
-        </div>
-        <div className="catalog__content">
-          <InfinityList data={products} />
-        </div>
-      </div>
-    </Helmet>
+      </Helmet>
+      <ButtonSTT></ButtonSTT>
+    </>
   );
 };
 

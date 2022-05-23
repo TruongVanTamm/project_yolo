@@ -83,7 +83,7 @@ const ProductCard = (props) => {
             );
           })}
         </div>
-        <div className="product-card__sale">{props.discount}</div>
+        <div className={props.discount ? 'product-card__sale' : ''}>{props.discount}</div>
         <div
           className="product-card__like"
           onClick={handleLike}
@@ -99,9 +99,9 @@ ProductCard.propTypes = {
   img02: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  old_price: PropTypes.string.isRequired,
+  old_price: PropTypes.string,
   slug: PropTypes.string.isRequired,
-  discount: PropTypes.string.isRequired,
+  discount: PropTypes.string,
   activeAlert: PropTypes.bool,
 };
 

@@ -20,7 +20,7 @@ const ButtonSTT = () => {
     }, []);
   return (
       <>
-    <div className={showTopBtn ? 'buttonstt': ''} onClick={goToTop}>
+    <div className={showTopBtn ? 'buttonstt': 'hide'} onClick={goToTop}>
         <button className="buttonstt__button">
         <i className='bx bx-up-arrow-alt buttonstt__button__icon' ></i>
         </button>

@@ -26,6 +26,14 @@ const colors = [
     {
         display: "Nâu",
         color: "brown"
+    },
+    {
+        display: "be",
+        color: "be"
+    },
+    {
+        display: "TÍm",
+        color: "purple"
     }
 ]
 

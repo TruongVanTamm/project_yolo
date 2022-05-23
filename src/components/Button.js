@@ -24,7 +24,7 @@ const Button = (props) => {
 Button.propTypes = {
   backgroundColor: PropTypes.string,
   size: PropTypes.string,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
   animate: PropTypes.bool,
   onCick: PropTypes.func,
 };

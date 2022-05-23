@@ -10,6 +10,7 @@
   @include mobile{
     width: 45px;
     height: 45px;
+    border-radius: 50%;
   }
   @include flex(center, center);
   &__button {
@@ -23,4 +24,7 @@
       color: #fff;
     }
   }
+}
+.hide{
+  display: none;
 }
