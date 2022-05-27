@@ -28,7 +28,7 @@ const colors = [
         color: "brown"
     },
     {
-        display: "be",
+        display: "Be",
         color: "be"
     },
     {

@@ -1,8 +1,6 @@
 import React, { useCallback, useState, useEffect, useRef } from 'react';
-
 import Helmet from '../components/Helmet';
 import CheckBox from '../components/CheckBox.js';
-
 import productData from '../Asset/fake-data/product';
 import category from '../Asset/fake-data/category';
 import colors from '../Asset/fake-data/product-color';
@@ -10,12 +8,14 @@ import size from '../Asset/fake-data/product-size';
 import Button from '../components/Button';
 import InfinityList from '../components/InfinityList';
 import ButtonSTT from '../components/ButtonSTT';
+import NoProduct from '../components/NoProduct';
 const Catalog = () => {
   const initFilter = {
     category: [],
     color: [],
     size: [],
   };
+  const [notFound, setNotFound] = useState(false);
 
   const productList = productData.getAllProducts();
 
@@ -117,6 +117,16 @@ const Catalog = () => {
       behavior: 'smooth',
     });
   }, []);
+  const NotFound = useCallback(() => {
+    if (products.length === 0) {
+      setNotFound(true);
+    } else {
+      setNotFound(false);
+    }
+  }, [products]);
+  useEffect(() => {
+    NotFound();
+  }, [NotFound]);
   return (
     <>
       <Helmet title="Sản phẩm">
@@ -222,6 +232,7 @@ const Catalog = () => {
           </div>
           <div className="catalog__content">
             <InfinityList data={products}></InfinityList>
+            <div className='catalog__content__not-found'>{notFound ? <NoProduct></NoProduct> : null}</div>
           </div>
         </div>
       </Helmet>

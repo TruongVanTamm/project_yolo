@@ -37,6 +37,9 @@
       transform: scale(1.03);
     }
   }
+  &__btn {
+    transform:translateY(-40%)
+  }
   &__choice {
     @include flex(center, center);
     cursor: pointer;
@@ -69,7 +72,7 @@
     text-overflow: ellipsis;
   }
   &__price {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: $main-color;
     margin-bottom: 8px;
     min-height: 45px;

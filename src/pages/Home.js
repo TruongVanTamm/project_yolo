@@ -66,7 +66,6 @@ const Home = () => {
                   slug={item.slug}
                   img01={item.image01}
                   img02={item.image02}
-                  index={index}
                 ></ProductCard>
               );
             })}

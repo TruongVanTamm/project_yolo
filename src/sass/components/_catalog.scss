@@ -90,18 +90,37 @@
 
   &__content {
     width: 70%;
-
+    @include flex(center, center);
     @include tablet {
       width: 100%;
+    }
+    &__not-found{
+      transform: translateY(65%);
+      &__main{
+        @include flex(center, center);
+        flex-direction: column;
+        gap:20px;
+        color: $main-color;
+        font-size: 1.4rem;
+        text-align: center;
+        @include tablet {
+          transform: translateX(50%);
+        }
+        @include mobile {
+          transform: translateX(0);
+        }
+      }
     }
   }
 
   &__filter__toggle {
     display: none;
     @include tablet {
-      z-index: 97;
+      z-index: 97;   
       display: block;
       margin-bottom: 2rem;
     }
   }
+
+
 }
