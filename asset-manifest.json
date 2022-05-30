@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project_yolo/static/css/main.051ea203.css",
-    "main.js": "/project_yolo/static/js/main.0577b00b.js",
+    "main.css": "/project_yolo/static/css/main.c40e6f95.css",
+    "main.js": "/project_yolo/static/js/main.6962d867.js",
     "static/media/boxicons.svg": "/project_yolo/static/media/boxicons.1074e022279973afba03.svg",
     "static/media/slide_3.png": "/project_yolo/static/media/slide_3.6e2ad4f2a2f8759c6360.png",
     "static/media/slide_2.png": "/project_yolo/static/media/slide_2.a5d8646fd562e1727d9d.png",
@@ -78,11 +78,11 @@
     "static/media/product-10 (2).jpg": "/project_yolo/static/media/product-10 (2).4890e19f6ed59d80e25b.jpg",
     "static/media/Logo-2.png": "/project_yolo/static/media/Logo-2.3f227664b3ce56e8fcde.png",
     "index.html": "/project_yolo/index.html",
-    "main.051ea203.css.map": "/project_yolo/static/css/main.051ea203.css.map",
-    "main.0577b00b.js.map": "/project_yolo/static/js/main.0577b00b.js.map"
+    "main.c40e6f95.css.map": "/project_yolo/static/css/main.c40e6f95.css.map",
+    "main.6962d867.js.map": "/project_yolo/static/js/main.6962d867.js.map"
   },
   "entrypoints": [
-    "static/css/main.051ea203.css",
-    "static/js/main.0577b00b.js"
+    "static/css/main.c40e6f95.css",
+    "static/js/main.6962d867.js"
   ]
 }
