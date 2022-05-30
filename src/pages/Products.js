@@ -24,7 +24,7 @@ const Product = () => {
         <SectionTitle>Khám phá thêm</SectionTitle>
         <SectionBody>
           <Grid
-            col={4}
+            col={6}
             mdCol={3}
             smCol={2}
             gap={20}

@@ -38,7 +38,10 @@
     }
   }
   &__btn {
-    transform:translateY(-40%)
+    transform:translateY(-40%);
+    @include tabletPro{
+      transform:translateY(0);
+    }
   }
   &__choice {
     @include flex(center, center);
@@ -76,14 +79,17 @@
     color: $main-color;
     margin-bottom: 8px;
     min-height: 45px;
+      transform: translateY(-10px);
+    @include flex(center,center);
+    @include tabletPro {
+      display: flex;
+      flex-direction: column;
+      min-height: 45px;
+    }
     @include tablet{
       display: flex;
       flex-direction: column;
-    }
-    @include tabletPro {
-      min-height: 80px;
-      display: flex;
-      flex-direction: column;
+      transform: translateY(-20px);
     }
     &__old {
       margin-right: 10px;
@@ -150,3 +156,4 @@
     @include flex(center, center);
   }
 }
+
