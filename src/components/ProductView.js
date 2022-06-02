@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 const ProductView = (props) => {
@@ -13,6 +13,7 @@ const ProductView = (props) => {
       window.scrollTo(0, 1000);
     }
   };
+
   return (
     <div className="product">
       <div className="product__images">

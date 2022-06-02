@@ -107,7 +107,7 @@
         color: $text-second-color;
         font-size: 1.8rem;
         line-height: 2.5rem;
-        
+
         @include tablet {
           font-size: 1.6rem;
         }
@@ -139,7 +139,7 @@
     &__img {
       position: relative;
       width: 70%;
-      z-index: 99;
+      z-index: 98;
       height: 100%;
       width: 100%;
       pointer-events: none;

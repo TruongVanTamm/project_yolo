@@ -6,10 +6,10 @@ import Header from './Header';
 const SetupLayout = () => {
   return (
     <div>
-        <Header />
+      <Header />
       <div className="container">
         <div className="main">
-          <RoutesWrap></RoutesWrap>
+            <RoutesWrap></RoutesWrap>
         </div>
       </div>
       <Footer></Footer>

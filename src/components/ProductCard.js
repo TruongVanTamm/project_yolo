@@ -1,21 +1,19 @@
-import React, {  useState } from 'react';
+import React, {useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import AlertLike from '../components/AlertLike';
 const ProductCard = (props) => {
-  const [like, setLike] = useState();
   const [activeProduct, setActiveProduct] = useState(0);
-  let reset;
-  const handleLike = () => {
-    setLike(!like);
-  };
-
   const handleProductClick = (index) => {
     setActiveProduct(index);
   };
+  const [like, setLike] = useState();
+  const handleLike = () => {
+    setLike(!like);
+  };
   const data = [{ img01: props.img01 }, { img02: props.img02 }];
-
+  let reset;
   if (like === false) {
     reset = 'activeAlert';
   }
@@ -83,14 +81,16 @@ const ProductCard = (props) => {
             );
           })}
         </div>
-        <div className={props.discount ? 'product-card__sale' : ''}>{props.discount}</div>
+        <div className={props.discount ? 'product-card__sale' : ''}>
+          {props.discount}
+        </div>
         <div
           className="product-card__like"
-          onClick={handleLike}
+          onClick={handleLike }
         >
           <i className={like ? 'bx bxs-heart' : 'bx bx-heart'}></i>
         </div>
-      </div>
+      </div>{' '}
     </>
   );
 };

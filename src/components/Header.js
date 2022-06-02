@@ -111,7 +111,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="search-container " ref={search}>
+      {/* <div className="search-container " ref={search}>
       <i className="bx bx-chevron-left close-search" onClick={Search}></i>
       <div className="search-content">
         <i className="bx bx-search"></i>
@@ -122,9 +122,8 @@ const Header = () => {
           ref={search_input}
         />
       </div>
-    </div>
+    </div> */}
     </div>
   );
 };
-
 export default Header;

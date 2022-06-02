@@ -6,6 +6,8 @@ import './sass/index.scss';
 const container = document.getElementById('root');
 const root = createRoot(container);
 function App() {
-  return <Layout></Layout>;
+  return (
+      <Layout></Layout>
+  );
 }
-root.render(<App/>);
+root.render(<App />);
