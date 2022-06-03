@@ -54,10 +54,10 @@ const ProductCard = (props) => {
         <div className="product-card__btn">
           <Button
             size="sm"
-            icon="bx bx-cart"
+            icon="bx bx-cart-add"
             animate={true}
           >
-            chọn mua
+            Thêm vào giỏ hàng
           </Button>
         </div>
         <div className="product-card__choice">

@@ -15,18 +15,23 @@
   }
 
   &__checkmark {
-    @include flex(center,center);
+    @include flex(center, center);
     margin-right: 10px;
     height: 15px;
     width: 15px;
-    border: 1px solid $text-second-color;
-
+    border: 1px solid $text-main-color;
     i {
       transform: scale(0);
       transition: transform 0.3s ease;
     }
   }
-
+  &__label {
+    color: $text-main-color;
+    font-weight: normal;
+    &.filter {
+     opacity: 0.4;
+    }
+  }
   input:checked ~ &__checkmark {
     background-color: $main-color;
     border: 1px solid $main-color;

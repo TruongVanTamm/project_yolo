@@ -4,6 +4,7 @@ import Home from '../pages/Home'
 import Catalog from '../pages/Catalog'
 import Cart from '../pages/Cart'
 import Products from '../pages/Products'
+import SignUpPage from '../pages/SignUpPage'
 const RoutesWrap = () => {
   return ( 
         <Routes>
@@ -11,6 +12,7 @@ const RoutesWrap = () => {
           <Route path='/catalog/:slug' element={<Products></Products>}></Route>
           <Route path='/catalog' element={<Catalog></Catalog>}></Route>
           <Route path='/cart' element={<Cart></Cart>}></Route>
+          <Route path='/signup' element={<SignUpPage></SignUpPage>}></Route>
         </Routes>
   )
 }

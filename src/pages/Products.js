@@ -32,6 +32,7 @@ const Product = () => {
             >
               {relatedProducts.map((item, index) => (
                 <ProductCard
+                  key={index}
                   name={item.name}
                   price={item.price}
                   old_price={item.old_price}
@@ -39,7 +40,6 @@ const Product = () => {
                   slug={item.slug}
                   img01={item.image01}
                   img02={item.image02}
-                  index={index}
                 ></ProductCard>
               ))}
             </Grid>

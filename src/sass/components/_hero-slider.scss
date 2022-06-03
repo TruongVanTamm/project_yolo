@@ -139,7 +139,7 @@
     &__img {
       position: relative;
       width: 70%;
-      z-index: 98;
+      z-index: 101;
       height: 100%;
       width: 100%;
       pointer-events: none;
@@ -155,7 +155,7 @@
         height: 45vh;
       }
       img {
-        z-index: 98;
+        z-index: 97;
         height: 100%;
         width: 100%;
         object-fit: contain;
@@ -170,10 +170,10 @@
         }
       }
       .shape {
-        height: 472px;
-        width: 472px;
+        height: 442px;
+        width: 442px;
         position: absolute;
-        right: 0;
+        right: 100px;
         top: 50%;
         border-radius: 21% 79% 18% 82% / 76% 18% 82% 24%;
         transform: translate(0, -50%);
@@ -201,6 +201,7 @@
     }
   }
 }
+
 @keyframes border {
   0% {
     border-radius: 21% 79% 18% 82% / 76% 18% 82% 24%;

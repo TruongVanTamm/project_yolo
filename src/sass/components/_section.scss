@@ -1,4 +1,10 @@
 .section {
+  &__new-load-more{
+    display: none;
+    &.active{
+      display:block
+    }
+  }
   overflow:hidden;
   margin-bottom: 80px;
   & > * ~ * {

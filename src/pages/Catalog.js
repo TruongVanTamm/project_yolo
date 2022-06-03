@@ -127,6 +127,21 @@ const Catalog = () => {
   useEffect(() => {
     NotFound();
   }, [NotFound]);
+  const colorList = products.map((item) => item.colors);
+  const ArrayColor = [];
+  colorList.map((item) => ArrayColor.push(...item));
+  const temp1 = new Set(ArrayColor);
+  const FilterColor = [...temp1];
+
+  const catalogList = products.map((item) => item.categorySlug);
+  const FilterCategory = [];
+  catalogList.map((item) => FilterCategory.push(item));
+
+  const sizeList = products.map((item) => item.size);
+  const ArraySize = [];
+  sizeList.map((item) => ArraySize.push(...item));
+  const temp2 = new Set(ArraySize);
+  const FilterSize = [...temp2];
   return (
     <>
       <Helmet title="Sản phẩm">
@@ -157,6 +172,9 @@ const Catalog = () => {
                         filterSelect('CATEGORY', input.checked, item)
                       }
                       checked={filter.category.includes(item.categorySlug)}
+                      hideLabel={
+                        FilterCategory.includes(item.categorySlug) ? '' : 'filter'
+                      }
                     />
                   </div>
                 ))}
@@ -177,6 +195,9 @@ const Catalog = () => {
                         filterSelect('COLOR', input.checked, item)
                       }
                       checked={filter.color.includes(item.color)}
+                      hideLabel={
+                        FilterColor.includes(item.color) ? '' : 'filter'
+                      }
                     />
                   </div>
                 ))}
@@ -197,6 +218,9 @@ const Catalog = () => {
                         filterSelect('SIZE', input.checked, item)
                       }
                       checked={filter.size.includes(item.size)}
+                      hideLabel={
+                        FilterSize.includes(item.size) ? '' : 'filter'
+                      }
                     />
                   </div>
                 ))}
@@ -232,7 +256,9 @@ const Catalog = () => {
           </div>
           <div className="catalog__content">
             <InfinityList data={products}></InfinityList>
-            <div className='catalog__content__not-found'>{notFound ? <NoProduct></NoProduct> : null}</div>
+            <div className="catalog__content__not-found">
+              {notFound ? <NoProduct></NoProduct> : null}
+            </div>
           </div>
         </div>
       </Helmet>

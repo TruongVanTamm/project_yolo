@@ -84,7 +84,7 @@ const HeroSliderItem = (props) => {
           <Link to={props.item.path}>
             <Button
               backgroundColor={props.item.color}
-              icon="bx bx-cart"
+              icon="bx bxs-right-arrow"
               animate={true}
               // size='sm'
             >

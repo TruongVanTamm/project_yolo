@@ -42,6 +42,9 @@
     @include tabletPro{
       transform:translateY(0);
     }
+    @include mobile{
+      transform:translateY(0);
+    }
   }
   &__choice {
     @include flex(center, center);
@@ -90,6 +93,9 @@
       display: flex;
       flex-direction: column;
       transform: translateY(-20px);
+    }
+    @include mobile{
+      transform:translateY(0);
     }
     &__old {
       margin-right: 10px;
