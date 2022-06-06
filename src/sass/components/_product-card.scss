@@ -8,7 +8,7 @@
     position: relative;
     overflow: hidden;
     margin-bottom: 30px;
-    @include tablet{
+    @include tablet {
       margin-bottom: 20px;
     }
     transition: transform 0.5s ease;
@@ -38,12 +38,15 @@
     }
   }
   &__btn {
-    transform:translateY(-40%);
-    @include tabletPro{
-      transform:translateY(0);
+    transform: translateY(-40%);
+    @include tabletPro {
+      transform: translateY(0);
     }
-    @include mobile{
-      transform:translateY(0);
+    @include tablet {
+      transform: translateY(0);
+    }
+    @include mobile {
+      transform: translateY(0);
     }
   }
   &__choice {
@@ -82,20 +85,23 @@
     color: $main-color;
     margin-bottom: 8px;
     min-height: 45px;
-      transform: translateY(-10px);
-    @include flex(center,center);
+    @include mobile{
+      min-height: 55px;
+    }
+    transform: translateY(-10px);
+    @include flex(center, center);
     @include tabletPro {
       display: flex;
       flex-direction: column;
       min-height: 45px;
     }
-    @include tablet{
+    @include tablet {
       display: flex;
       flex-direction: column;
-      transform: translateY(-20px);
+      transform: translateY(0);
     }
-    @include mobile{
-      transform:translateY(0);
+    @include mobile {
+      transform: translateY(0);
     }
     &__old {
       margin-right: 10px;
@@ -160,6 +166,19 @@
     width: 35px;
     height: 35px;
     @include flex(center, center);
+    &:hover{
+       animation: likeAnimation linear 1.2s infinite
+    }
   }
 }
-
+@keyframes likeAnimation {
+  0%{ 
+    transform: rotate(-15deg);
+  }
+  50%{
+    transform: rotate(15deg);
+  }
+  100%{
+    transform: rotate(-15deg);
+  }
+}

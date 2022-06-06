@@ -4,7 +4,6 @@ import { createContext, useState } from 'react';
 const ProductProvider = createContext();
 function ProductContext({ children }) {
   const [like, setLike] = useState();
-  console.log(like);
   const handleLike = () => {
     setLike(!like);
   };

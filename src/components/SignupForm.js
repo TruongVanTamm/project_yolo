@@ -17,6 +17,7 @@ const SignupForm = () => {
       email: Yup.string()
       .required('Vui lòng nhập trường này')
         .matches(
+           // eslint-disable-next-line
           /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
           'Địa chỉ email không hợp lệ'
         ),
@@ -38,7 +39,6 @@ const SignupForm = () => {
     }),
     onSubmit: (values) => {
       window.alert('Form submitted');
-      console.log(values);
     },
   });
   return (

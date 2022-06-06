@@ -16,6 +16,9 @@ html,
 body {
   height: 100%;
   font-size: 62.5%;
+  @include mobile{
+    font-size: 11px;
+  }
 }
 body {
   line-height: 1.5;
