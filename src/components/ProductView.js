@@ -2,8 +2,23 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/shopping-cart/cartItemsSlide'
+import { remove } from '../redux/product-modal/productModalSlice'
 const ProductView = (props) => {
-  const product = props.product;
+  const dispatch = useDispatch()
+  let product = props.product
+  if (product === undefined) product = {
+    title: "",
+    price: '',
+    image01: null,
+    image02: null,
+    categorySlug: "",
+    colors: [],
+    slug: "",
+    size: [],
+    description: ""
+}
   const [previewImg, setPreviewImg] = useState(product.image01);
   const [descriptionExpand, setDescriptionExpand] = useState(false);
   const [color, setColor] = useState(undefined);
@@ -37,11 +52,38 @@ const ProductView = (props) => {
     return true;
   };
   const addToCart = () => {
-    if (check()) console.log({ color, size, quantity });
-  };
-  const goToCart = () => {
-    if (check()) navigate('/cart');
-  };
+    if (check()) {
+        let newItem = {
+            slug: product.slug,
+            color: color,
+            size: size,
+            price: product.price,
+            quantity: quantity
+        }
+        if (dispatch(addItem(newItem))) {
+            alert('Success')
+        } else {
+            alert('Fail')
+        }
+    }
+}
+const goToCart = () => {
+  if (check()) {
+      let newItem = {
+          slug: product.slug,
+          color: color,
+          size: size,
+          price: product.price,
+          quantity: quantity
+      }
+      if (dispatch(addItem(newItem))) {
+          dispatch(remove())
+          navigate('/cart')
+      } else {
+          alert('Fail')
+      }
+  }
+}
   useEffect(() => {
     setPreviewImg(product.image01);
     setQuanity(1);
@@ -142,7 +184,7 @@ const ProductView = (props) => {
           </span>
         </div>
         <div className="product__info__item">
-          <span className="product__info__item__title"> Sô lượng</span>
+          <span className="product__info__item__title"> Số lượng</span>
           <div className="product__info__item__quantity">
             <div
               className="product__info__item__quantity__btn"
@@ -198,7 +240,7 @@ const ProductView = (props) => {
 };
 
 ProductView.propTypes = {
-  product: PropTypes.object.isRequired,
+  product: PropTypes.object,
 };
 
 export default ProductView;

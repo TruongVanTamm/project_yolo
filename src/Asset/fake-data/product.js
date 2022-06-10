@@ -98,8 +98,8 @@ const product_32_image_02 = require('../images/products/product-32 (2).jpg');
 const products = [
   {
     name: 'Áo thun Dinosaur cam',
-    price: '149.000 VND',
-    old_price: '189.000 VND',
+    price: '149.000 ',
+    old_price: '189.000 ',
     discount: '-22%',
     image01: product_01_image_01,
     image02: product_01_image_02,
@@ -112,8 +112,8 @@ const products = [
   },
   {
     name: 'Áo thun Dinosaur nâu',
-    price: '119.000 VND',
-    old_price: '159.000 VND',
+    price: '119.000 ',
+    old_price: '159.000 ',
     discount: '-28%',
     image01: product_02_image_01,
     image02: product_02_image_02,
@@ -126,8 +126,8 @@ const products = [
   },
   {
     name: 'Áo thun Dinosaur vàng',
-    price: '149.000 VND',
-    old_price: '190.000 VND',
+    price: '149.000 ',
+    old_price: '190.000 ',
     discount: '-10%',
     image01: product_03_image_01,
     image02: product_03_image_02,
@@ -140,8 +140,8 @@ const products = [
   },
   {
     name: 'Áo thun Polo be',
-    price: '150.000 VND',
-    old_price: '194.000 VND',
+    price: '150.000 ',
+    old_price: '194.000 ',
     discount: '-20%',
     image01: product_04_image_01,
     image02: product_04_image_02,
@@ -154,8 +154,8 @@ const products = [
   },
   {
     name: 'Áo thun Polo 05',
-    price: '110.000 VND',
-    old_price: '164.000 VND',
+    price: '110.000 ',
+    old_price: '164.000 ',
     discount: '-28%',
     image01: product_05_image_01,
     image02: product_05_image_02,
@@ -168,8 +168,8 @@ const products = [
   },
   {
     name: 'Áo thun Polo 06',
-    price: '150.000 VND',
-    old_price: '149.000 VND',
+    price: '150.000 ',
+    old_price: '149.000 ',
     discount: '-22%',
     image01: product_06_image_01,
     image02: product_06_image_02,
@@ -182,8 +182,8 @@ const products = [
   },
   {
     name: 'Áo somi caro xọc',
-    price: '145.000 VND',
-    old_price: '180.000 VND',
+    price: '145.000 ',
+    old_price: '180.000 ',
     discount: '-40%',
     image01: product_07_image_01,
     image02: product_07_image_02,
@@ -196,8 +196,8 @@ const products = [
   },
   {
     name: 'Áo somi dài tay ',
-    price: '150.000 VND',
-    old_price: '194.000 VND',
+    price: '150.000 ',
+    old_price: '194.000 ',
     discount: '-22%',
     image01: product_08_image_01,
     image02: product_08_image_02,
@@ -210,8 +210,8 @@ const products = [
   },
   {
     name: 'Áo somi tay dài 09',
-    price: '150.000 VND',
-    old_price: '194.000 VND',
+    price: '150.000 ',
+    old_price: '194.000 ',
     discount: '-44%',
     image01: product_09_image_01,
     image02: product_09_image_02,
@@ -224,8 +224,8 @@ const products = [
   },
   {
     name: 'Quần jean phong cách 10',
-    price: '150.000 VND',
-    old_price: '194.000 VND',
+    price: '150.000 ',
+    old_price: '194.000 ',
     discount: '-50%',
     image01: product_10_image_01,
     image02: product_10_image_02,
@@ -238,8 +238,8 @@ const products = [
   },
   {
     name: 'Quần jean 11',
-    price: '150.000 VND',
-    old_price: '194.000 VND',
+    price: '150.000 ',
+    old_price: '194.000 ',
     discount: '-33%',
     image01: product_11_image_01,
     image02: product_11_image_02,
@@ -252,8 +252,8 @@ const products = [
   },
   {
     name: 'Quần jean 12',
-    price: '150.000 VND',
-    old_price: '194.000 VND',
+    price: '150.000 ',
+    old_price: '194.000 ',
     discount: '-40%',
     image01: product_12_image_01,
     image02: product_12_image_02,
@@ -266,8 +266,8 @@ const products = [
   },
   {
     name: 'Áo Polo Nữ Cafe Phối Nẹp Siêu Nhẹ Siêu Mát',
-    price: '299.000 VND',
-    old_price: '329.000 VND',
+    price: '299.000 ',
+    old_price: '329.000 ',
     discount: '-10%',
     image01: product_13_image_01,
     image02: product_13_image_02,
@@ -280,7 +280,7 @@ const products = [
   },
   {
     name: 'Áo Polo Thể Thao Nam Melange Phối Ngực In Phản Quang',
-    price: '369.000 VND',
+    price: '369.000 ',
     image01: product_14_image_01,
     image02: product_14_image_02,
     categorySlug: 'ao-polo',
@@ -292,8 +292,8 @@ const products = [
   },
   {
     name: ' Áo Polo Thể Thao Nam Airy Cool In Phản Quang - Xanh Ngọc',
-    price: '349.000 VND',
-    old_price: '379.000 VND',
+    price: '349.000 ',
+    old_price: '379.000 ',
     discount: '-8%',
     image01: product_15_image_01,
     image02: product_15_image_02,
@@ -306,7 +306,7 @@ const products = [
   },
   {
     name: ' Áo Sơ Mi Nữ Dáng Suông Trễ Cổ',
-    price: '459.000 VND',
+    price: '459.000 ',
     image01: product_16_image_01,
     image02: product_16_image_02,
     categorySlug: 'ao-somi',
@@ -318,7 +318,7 @@ const products = [
   },
   {
     name: ' Áo Sơ Mi Nữ Tay Ngắn Cổ Nơ Vai Chờm',
-    price: '289.000 VND',
+    price: '289.000 ',
     image01: product_17_image_01,
     image02: product_17_image_02,
     categorySlug: 'ao-somi',
@@ -330,8 +330,8 @@ const products = [
   },
   {
     name: ' Áo Sơ Mi Nữ Không Tay Cổ Tròn Cách Điệu',
-    price: '135.660 VND',
-    old_price: '399.000 VND',
+    price: '135.660 ',
+    old_price: '399.000 ',
     discount: '-66%',
     image01: product_18_image_01,
     image02: product_18_image_02,
@@ -344,7 +344,7 @@ const products = [
   },
   {
     name: 'Áo T-Shirt Nữ In Ngực Thể Thao Mềm Mịn Thông Thoáng',
-    price: '229.000 VND',
+    price: '229.000 ',
     image01: product_19_image_01,
     image02: product_19_image_02,
     categorySlug: 'ao-thun',
@@ -356,7 +356,7 @@ const products = [
   },
   {
     name: 'Áo T-Shirt Nữ In Ngực Thể Thao Mềm Mịn Thông Thoáng',
-    price: '229.000 VND',
+    price: '229.000 ',
     image01: product_20_image_01,
     image02: product_20_image_02,
     categorySlug: 'ao-thun',
@@ -368,8 +368,8 @@ const products = [
   },
   {
     name: 'Áo Polo Nữ Cafe Phối Màu',
-    price: '299.000 VND',
-    old_price: '329.000 VND',
+    price: '299.000 ',
+    old_price: '329.000 ',
     discount: '-10%',
     image01: product_21_image_01,
     image02: product_21_image_02,
@@ -382,7 +382,7 @@ const products = [
   },
   {
     name: 'Chân Váy Xòe Dài Nhẹ Nhàng Nữ Tính',
-    price: '389.000 VND',
+    price: '389.000 ',
     image01: product_22_image_01,
     image02: product_22_image_02,
     categorySlug: 'chan-vay',
@@ -394,7 +394,7 @@ const products = [
   },
   {
     name: 'Chân Váy Bút Chì Cạp Cao Có Túi',
-    price: '489.000 VND',
+    price: '489.000 ',
     image01: product_23_image_01,
     image02: product_23_image_02,
     categorySlug: 'chan-vay',
@@ -406,7 +406,7 @@ const products = [
   },
   {
     name: 'Váy Lụa Xòe Cổ V',
-    price: '599.000 VND',
+    price: '599.000 ',
     image01: product_24_image_01,
     image02: product_24_image_02,
     categorySlug: 'vay-lien',
@@ -418,8 +418,8 @@ const products = [
   },
   {
     name: 'Váy Chữ A Dài Liền Thân Cổ Nơ',
-    price: '169.660 VND',
-    old_price: '499.000 VND',
+    price: '169.660 ',
+    old_price: '499.000 ',
     discount: '-66%',
     image01: product_25_image_01,
     image02: product_25_image_02,
@@ -432,8 +432,8 @@ const products = [
   },
   {
     name: 'Váy Chữ A Cổ V Tay Bồng Tafta',
-    price: '203.660  VND',
-    old_price: '599.000 VND',
+    price: '203.660  ',
+    old_price: '599.000 ',
     discount: '-66%',
     image01: product_26_image_01,
     image02: product_26_image_02,
@@ -446,7 +446,7 @@ const products = [
   },
   {
     name: 'Quần Jean Lửng Nữ Lưng Cao Ống Rộng',
-    price: '349.000 VND',
+    price: '349.000 ',
     image01: product_27_image_01,
     image02: product_27_image_02,
     categorySlug: 'quan-short',
@@ -458,7 +458,7 @@ const products = [
   },
   {
     name: 'Quần Short Jeans Nữ Bó Cạp Cao',
-    price: '349.000 VND',
+    price: '349.000 ',
     image01: product_28_image_01,
     image02: product_28_image_02,
     categorySlug: 'quan-short',
@@ -470,7 +470,7 @@ const products = [
   },
   {
     name: 'Áo Thun Nữ Cotton Cổ Tròn In Hoa Cúc',
-    price: '249.000 VND',
+    price: '249.000 ',
     image01: product_29_image_01,
     image02: product_29_image_02,
     categorySlug: 'ao-thun',
@@ -482,7 +482,7 @@ const products = [
   },
   {
     name: 'Áo Chống Nắng Nữ Airy UV Thoáng Mát Chống Tia UV',
-    price: '349.000 VND',
+    price: '349.000 ',
     image01: product_30_image_01,
     image02: product_30_image_02,
     categorySlug: 'ao-chong-nang',
@@ -494,7 +494,7 @@ const products = [
   },
   {
     name: 'Quần Âu Nữ Cạp Cao Ống Rộng',
-    price: '499.000 VND',
+    price: '499.000 ',
     image01: product_31_image_01,
     image02: product_31_image_02,
     categorySlug: 'quan-au',
@@ -506,7 +506,7 @@ const products = [
   },
   {
     name: 'Quần Âu Nữ Ống Đứng Thời Trang',
-    price: '549.000 VND',
+    price: '549.000 ',
     image01: product_32_image_01,
     image02: product_32_image_02,
     categorySlug: 'quan-au',
@@ -527,11 +527,27 @@ const getProducts = (count) => {
   return products.slice(start, start + count);
 };
 const getProductBySlug = (slug) => products.find((e) => e.slug === slug);
-
+const getCartItemsInfo = (cartItems) => {
+  let res = []
+  if (cartItems.length > 0) {
+      cartItems.forEach(e => {
+          let product = getProductBySlug(e.slug)
+          res.push({
+              ...e,
+              product: product
+          })
+      })
+  }
+  // console.log(res)
+  // console.log('sorted')
+  // console.log(res.sort((a, b) => a.slug > b.slug ? 1 : (a.slug < b.slug ? -1 : 0)))
+  return res.sort((a, b) => a.id > b.id ? 1 : (a.id < b.id ? -1 : 0))
+}
 const productData = {
   getAllProducts,
   getProducts,
   getProductBySlug,
+  getCartItemsInfo
 };
 
 export default productData;

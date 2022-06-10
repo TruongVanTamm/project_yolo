@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import AlertLike from '../components/AlertLike';
+import { useDispatch } from 'react-redux';
+import {set} from '../redux/product-modal/productModalSlice'
 const ProductCard = (props) => {
   const [activeProduct, setActiveProduct] = useState(0);
   const handleProductClick = (index) => {
@@ -17,6 +19,7 @@ const ProductCard = (props) => {
   if (like === false) {
     reset = 'activeAlert';
   }
+  const dispatch=useDispatch()
   return (
     <>
       <AlertLike
@@ -56,8 +59,11 @@ const ProductCard = (props) => {
             size="sm"
             icon="bx bx-cart-add"
             animate={true}
+            onClick={
+              ()=>dispatch(set(props.slug))
+            }
           >
-            Thêm vào giỏ 
+            Chọn mua
           </Button>
         </div>
         <div className="product-card__choice">

@@ -2,6 +2,7 @@ import React from 'react';
 import RoutesWrap from '../router/routes';
 import Footer from './Footer';
 import Header from './Header';
+import ProductViewModal from './ProductViewModal';
 
 const SetupLayout = () => {
   return (
@@ -12,6 +13,7 @@ const SetupLayout = () => {
             <RoutesWrap></RoutesWrap>
         </div>
       </div>
+      <ProductViewModal></ProductViewModal>
       <Footer></Footer>
     </div>
   );
