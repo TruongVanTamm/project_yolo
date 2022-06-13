@@ -40,4 +40,7 @@
     color: red;
     padding-left: 5px;
   }
+  &__control{
+    @include flex(center, space-between);
+  }
 }
