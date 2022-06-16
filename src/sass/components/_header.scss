@@ -32,10 +32,17 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: 110px;
-    img {
+    &__user{
       height: 30px;
       @include mobile {
         height: 20px;
+      }
+    }
+    &__admin{
+      height: 60px;
+      background-color: #fff;
+      @include mobile {
+        height: 40px;
       }
     }
   }
@@ -69,10 +76,17 @@
       @include flex(center, center);
     }
     &__right {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       height: 100%;
       position: relative;
       &__item {
+        &__quantity{
+          position: absolute;
+          font-size: 18px;
+          top: 0;
+          right:0;
+          transform: translate(50%, -50%)
+        }
         &:hover{
           font-weight: bold
         }
@@ -88,7 +102,6 @@
           position: absolute;
           top: 100%;
           right:-100px;
-
           z-index: 100;
           padding: 10px 20px;
           border-radius: 10px;
@@ -99,6 +112,9 @@
           &__list{
             @include flex(flex-start, flex-start);
             flex-direction: column;
+            li{
+              width: 100%;
+            }
             a{
               display:block;
               width:100%;

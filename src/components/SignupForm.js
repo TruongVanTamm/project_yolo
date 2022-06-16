@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const SignupForm = () => {
   const formik = useFormik({
@@ -32,17 +33,21 @@ const SignupForm = () => {
       confirmedPassword: Yup.string()
         .required('Vui lòng nhập trường này')
         .oneOf([Yup.ref('password'), null], 'Mật khẩu không trùng khớp'),
-      phone: Yup.string()
-        .required('Vui lòng nhập trường này')
-        .matches(
-          /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
-          'Số điện thoại không hợp lệ'
-        ),
     }),
-    onSubmit: (values) => {
-      window.alert('Form submitted');
-    },
-  });
+    onSubmit: async ( values) => {
+     try{  
+      await axios.post('/user/register', {...values});
+
+          localStorage.setItem('firstLogin', true);
+  
+          window.location.href = '/';
+     }
+     catch (err) {
+      alert(err.response.data.msg);
+     }
+
+  }});
+
   return (
     <section>
       <form
@@ -73,18 +78,7 @@ const SignupForm = () => {
         {formik.errors.email && (
           <p className="errorMsg"> {formik.errors.email} </p>
         )}
-        <label> Số điện thoại</label>
-        <input
-          type="phone"
-          id="phone"
-          name="phone"
-          placeholder="Số điện thoại"
-          value={formik.values.phone}
-          onChange={formik.handleChange}
-        />
-        {formik.errors.phone && (
-          <p className="errorMsg"> {formik.errors.phone} </p>
-        )}
+
         <label> Mật khẩu </label>
         <input
           type="text"
@@ -110,9 +104,12 @@ const SignupForm = () => {
           <p className="errorMsg"> {formik.errors.confirmedPassword} </p>
         )}
         <div className="infoform__control">
-          <button>
-            <Link to="/signin">Đăng nhập</Link>
-          </button>
+          <Link
+            to="/signin"
+            className="infoform__control__btn"
+          >
+            Đăng nhập
+          </Link>
           <button type="submit"> Tiếp tục </button>
         </div>
       </form>

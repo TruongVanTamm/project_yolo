@@ -41,6 +41,13 @@
     padding-left: 5px;
   }
   &__control{
+    margin-top: 20px;
     @include flex(center, space-between);
+    &__btn{
+      padding: 1rem;
+      background-color: $main-color;
+      color: #fff;
+      border-radius: 12px;
+    }
   }
 }

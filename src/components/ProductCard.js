@@ -1,10 +1,9 @@
-import React, {useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import AlertLike from '../components/AlertLike';
-import { useDispatch } from 'react-redux';
-import {set} from '../redux/product-modal/productModalSlice'
+import { GlobalState } from '../GlobalState';
 const ProductCard = (props) => {
   const [activeProduct, setActiveProduct] = useState(0);
   const handleProductClick = (index) => {
@@ -14,12 +13,13 @@ const ProductCard = (props) => {
   const handleLike = () => {
     setLike(!like);
   };
-  const data = [{ img01: props.img01 }, { img02: props.img02 }];
+  const data = [{ image01: props.image01 }, { image02: props.image02 }];
   let reset;
   if (like === false) {
     reset = 'activeAlert';
   }
-  const dispatch=useDispatch()
+  const state = useContext(GlobalState);
+  const addCart=state.userAPI.addCart
   return (
     <>
       <AlertLike
@@ -27,18 +27,26 @@ const ProductCard = (props) => {
         reset={reset}
       ></AlertLike>
       <div className="product-card">
-        <Link to={`/catalog/${props.slug}`}>
+        {props.isAdmin && (
+          <input
+            className="product-card__input"
+            type="checkbox"
+            checked={props.checked}
+            // onChange={() => handleCheck(props._id)}
+          />
+        )}
+        <Link to={`/catalog/${props.id}`}>
           <div className="product-card__img">
             {data.map((item, index) => {
               return (
                 <div key={index}>
                   <img
-                    src={item.img01}
+                    src={item.image01}
                     alt=""
                     className={activeProduct === index ? 'active' : null}
                   />
                   <img
-                    src={item.img02}
+                    src={item.image02}
                     alt=""
                     className={activeProduct === index ? 'active' : null}
                   />
@@ -55,16 +63,47 @@ const ProductCard = (props) => {
           </div>
         </Link>
         <div className="product-card__btn">
-          <Button
-            size="sm"
-            icon="bx bx-cart-add"
-            animate={true}
-            onClick={
-              ()=>dispatch(set(props.slug))
-            }
-          >
-            Chọn mua
-          </Button>
+          {props.isAdmin ? (
+            <>
+              {' '}
+              <Button
+                size="sm"
+                icon="bx bx-cart-add"
+                animate={false}
+                backgroundColor="red"
+              >
+                Xóa
+              </Button>
+              <Button
+                size="sm"
+                icon="bx bx-cart-add"
+                animate={false}
+              >
+                Sửa
+              </Button>
+            </>
+          ) : (
+            <>
+              {' '}
+              <Button
+                size="sm"
+                icon="bx bx-cart-add"
+                animate={true}
+                onClick={() => addCart(props)}
+              >
+                Chọn mua
+              </Button>
+              <Link to={`/catalog/${props.id}`}>
+                <Button
+                  size="sm"
+                  icon="bx bx-cart-add"
+                  animate={false}
+                >
+                  Xem
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
         <div className="product-card__choice">
           {data.map((item, index) => {
@@ -74,12 +113,12 @@ const ProductCard = (props) => {
                 className={`product-card__choice__option`}
               >
                 <img
-                  src={item.img01}
+                  src={item.image01}
                   alt=""
                   onClick={() => handleProductClick(index)}
                 />
                 <img
-                  src={item.img02}
+                  src={item.image02}
                   alt=""
                   onClick={() => handleProductClick(index)}
                 />
@@ -92,7 +131,7 @@ const ProductCard = (props) => {
         </div>
         <div
           className="product-card__like"
-          onClick={handleLike }
+          onClick={handleLike}
         >
           <i className={like ? 'bx bxs-heart' : 'bx bx-heart'}></i>
         </div>
@@ -101,12 +140,11 @@ const ProductCard = (props) => {
   );
 };
 ProductCard.propTypes = {
-  img01: PropTypes.string.isRequired,
-  img02: PropTypes.string.isRequired,
+  image01: PropTypes.string.isRequired,
+  image02: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   old_price: PropTypes.string,
-  slug: PropTypes.string.isRequired,
   discount: PropTypes.string,
   activeAlert: PropTypes.bool,
 };

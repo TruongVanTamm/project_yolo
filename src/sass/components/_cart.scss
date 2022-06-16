@@ -6,10 +6,60 @@
     }
 
     &__list {
+
         width: 60%;
 
         @include mobile {
             width: 100%;
+        }
+        &__item{
+            @include flex( flex-start, space-between);
+            gap: 20px;
+        
+            &__img{
+                width: 20%;
+                img{
+                    object-fit:cover;
+                    object-position: center;
+                }
+            }
+            &__detail{
+                width: 80%;
+                @include flex( center, space-around);
+                font-size: 1.6rem;
+                &__info{
+                    @include flex( flex-start,flex-start);
+                    gap: 10px;
+                    flex-direction: column;
+                    span{
+                        color: $text-main-color;
+                        font-weight: bold;
+                        font-size: 1.8rem;
+                    }
+                }
+                &__amount{
+                    @include flex( center, space-between);
+                    gap: 20px;
+                    font-size: 1.6rem;
+                    button{
+                        font-size: 2.4rem;
+                        padding: 0 25px;
+                        background: $main-color;
+                        color: #fff;
+                        border-radius:12px;
+                        &:active{
+                            transform: scale(0.9);
+                        }
+                    }
+                }
+                &__delete{
+                    font-size: 2.4rem;
+                    transform:translateY(5%);
+                    &:active{
+                        transform: scale(0.9);
+                    }
+                }
+            }   
         }
     }
 
@@ -56,67 +106,5 @@
         }
     }
 
-    &__item {
-        @include flex(center, flex-start);
-        @include tablet{
-            @include flex(flex-start, flex-start);
-        }
-        margin-bottom: 20px;
-
-        &__image {
-            // width: 10%;
-            margin-right: 20px;
-
-            img {
-                height: 150px;
-                object-fit:cover;
-            }
-        }
-
-        &__info {
-            @include flex(center, space-between);
-            flex-grow: 1;
-            @include tablet{
-                flex-direction:column;
-                gap: 5px;
-            }
-            @include mobile {
-                @include flex(flex-start, center);
-                flex-direction: column;
-
-                & > * {
-                    margin-bottom: 10px;
-                }
-            }
-
-            &__name {
-                width: 40%;
-
-                @include mobile {
-                    width: 100%;
-                }
-            }
-
-            &__name,
-            &__price {
-                font-size: 1.4rem;
-                text-transform: uppercase;
-            }
-            &__price{
-                color: $main-color;
-            }
-        }
-
-        &__del {
-            font-size: 2.5rem;
-
-            i {
-                cursor: pointer;
-
-                &:hover {
-                    color: $main-color;
-                }
-            }
-        }
-    }
+   
 }

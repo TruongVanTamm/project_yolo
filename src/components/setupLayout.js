@@ -13,7 +13,7 @@ const SetupLayout = () => {
             <RoutesWrap></RoutesWrap>
         </div>
       </div>
-      <ProductViewModal></ProductViewModal>
+      {/* <ProductViewModal></ProductViewModal> */}
       <Footer></Footer>
     </div>
   );

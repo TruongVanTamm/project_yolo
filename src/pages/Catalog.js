@@ -1,4 +1,10 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react';
+import React, {
+  useCallback,
+  useState,
+  useEffect,
+  useRef,
+  useContext,
+} from 'react';
 import Helmet from '../components/Helmet';
 import CheckBox from '../components/CheckBox.js';
 import productData from '../Asset/fake-data/product';
@@ -9,107 +15,104 @@ import Button from '../components/Button';
 import InfinityList from '../components/InfinityList';
 import ButtonSTT from '../components/ButtonSTT';
 import NoProduct from '../components/NoProduct';
+import { GlobalState } from '../GlobalState';
+import Loading from '../components/Loading';
+
 const Catalog = () => {
-  const initFilter = {
-    category: [],
-    color: [],
-    size: [],
-  };
+  const state = useContext(GlobalState);
+  const [products] = state.productsAPI.products
   const [notFound, setNotFound] = useState(false);
 
-  const productList = productData.getAllProducts();
+  // const productList = productData.getAllProducts();
 
-  const [products, setProducts] = useState(productList);
+  // const [products, setProducts] = useState(productList);
 
-  const [filter, setFilter] = useState(initFilter);
+  // const filterSelect = (type, checked, item) => {
+  //   if (checked) {
+  //     switch (type) {
+  //       case 'CATEGORY':
+  //         setFilter({
+  //           ...filter,
+  //           category: [...filter.category, item.categorySlug],
+  //         });
+  //         break;
+  //       case 'COLOR':
+  //         setFilter({
+  //           ...filter,
+  //           color: [...filter.color, item.color],
+  //         });
+  //         break;
+  //       case 'SIZE':
+  //         setFilter({
+  //           ...filter,
+  //           size: [...filter.size, item.size],
+  //         });
+  //         break;
+  //       default:
+  //     }
+  //   } else {
+  //     switch (type) {
+  //       case 'CATEGORY':
+  //         const newCategory = filter.category.filter(
+  //           (e) => e !== item.categorySlug
+  //         );
+  //         setFilter({
+  //           ...filter,
+  //           category: newCategory,
+  //         });
+  //         break;
+  //       case 'COLOR':
+  //         const newColor = filter.color.filter((e) => e !== item.color);
+  //         setFilter({
+  //           ...filter,
+  //           color: newColor,
+  //         });
+  //         break;
+  //       case 'SIZE':
+  //         const newSize = filter.size.filter((e) => e !== item.size);
+  //         setFilter({
+  //           ...filter,
+  //           size: newSize,
+  //         });
+  //         break;
+  //       default:
+  //     }
+  //   }
+  // };
 
-  const filterSelect = (type, checked, item) => {
-    if (checked) {
-      switch (type) {
-        case 'CATEGORY':
-          setFilter({
-            ...filter,
-            category: [...filter.category, item.categorySlug],
-          });
-          break;
-        case 'COLOR':
-          setFilter({
-            ...filter,
-            color: [...filter.color, item.color],
-          });
-          break;
-        case 'SIZE':
-          setFilter({
-            ...filter,
-            size: [...filter.size, item.size],
-          });
-          break;
-        default:
-      }
-    } else {
-      switch (type) {
-        case 'CATEGORY':
-          const newCategory = filter.category.filter(
-            (e) => e !== item.categorySlug
-          );
-          setFilter({
-            ...filter,
-            category: newCategory,
-          });
-          break;
-        case 'COLOR':
-          const newColor = filter.color.filter((e) => e !== item.color);
-          setFilter({
-            ...filter,
-            color: newColor,
-          });
-          break;
-        case 'SIZE':
-          const newSize = filter.size.filter((e) => e !== item.size);
-          setFilter({
-            ...filter,
-            size: newSize,
-          });
-          break;
-        default:
-      }
-    }
-  };
+  // const updateProducts = useCallback(() => {
+  //   let temp = productList;
 
-  const clearFilter = () => setFilter(initFilter);
-  const updateProducts = useCallback(() => {
-    let temp = productList;
+  //   if (filter.category.length > 0) {
+  //     temp = temp.filter((e) => filter.category.includes(e.categorySlug));
+  //   }
 
-    if (filter.category.length > 0) {
-      temp = temp.filter((e) => filter.category.includes(e.categorySlug));
-    }
+  //   if (filter.color.length > 0) {
+  //     temp = temp.filter((e) => {
+  //       const check = e.colors.find((color) => filter.color.includes(color));
+  //       return check !== undefined;
+  //     });
+  //   }
 
-    if (filter.color.length > 0) {
-      temp = temp.filter((e) => {
-        const check = e.colors.find((color) => filter.color.includes(color));
-        return check !== undefined;
-      });
-    }
+  //   if (filter.size.length > 0) {
+  //     temp = temp.filter((e) => {
+  //       const check = e.size.find((size) => filter.size.includes(size));
+  //       return check !== undefined;
+  //     });
+  //   }
 
-    if (filter.size.length > 0) {
-      temp = temp.filter((e) => {
-        const check = e.size.find((size) => filter.size.includes(size));
-        return check !== undefined;
-      });
-    }
+  //   setProducts(temp);
+  // }, [filter, productList]);
 
-    setProducts(temp);
-  }, [filter, productList]);
+  // useEffect(() => {
+  //   updateProducts();
+  // }, [updateProducts]);
 
-  useEffect(() => {
-    updateProducts();
-  }, [updateProducts]);
+  // const filterRef = useRef(null);
 
-  const filterRef = useRef(null);
-
-  const showHideFilter = () => {
-    filterRef.current.classList.toggle('active');
-  };
+  // const showHideFilter = () => {
+  //   filterRef.current.classList.toggle('active');
+  // };
 
   useEffect(() => {
     window.scrollTo({
@@ -127,26 +130,26 @@ const Catalog = () => {
   useEffect(() => {
     NotFound();
   }, [NotFound]);
-  const colorList = products.map((item) => item.colors);
-  const ArrayColor = [];
-  colorList.map((item) => ArrayColor.push(...item));
-  const temp1 = new Set(ArrayColor);
-  const FilterColor = [...temp1];
+  // const colorList = products.map((item) => item.colors);
+  // const ArrayColor = [];
+  // colorList.map((item) => ArrayColor.push(...item));
+  // const temp1 = new Set(ArrayColor);
+  // const FilterColor = [...temp1];
 
-  const catalogList = products.map((item) => item.categorySlug);
-  const FilterCategory = [];
-  catalogList.map((item) => FilterCategory.push(item));
+  // const catalogList = products.map((item) => item.categorySlug);
+  // const FilterCategory = [];
+  // catalogList.map((item) => FilterCategory.push(item));
 
-  const sizeList = products.map((item) => item.size);
-  const ArraySize = [];
-  sizeList.map((item) => ArraySize.push(...item));
-  const temp2 = new Set(ArraySize);
-  const FilterSize = [...temp2];
+  // const sizeList = products.map((item) => item.size);
+  // const ArraySize = [];
+  // sizeList.map((item) => ArraySize.push(...item));
+  // const temp2 = new Set(ArraySize);
+  // const FilterSize = [...temp2];
   return (
     <>
       <Helmet title="Sản phẩm">
         <div className="catalog">
-          <div
+          {/* <div
             className="catalog__filter"
             ref={filterRef}
           >
@@ -168,12 +171,14 @@ const Catalog = () => {
                   >
                     <CheckBox
                       label={item.display}
-                      onChange={(input) =>
-                        filterSelect('CATEGORY', input.checked, item)
-                      }
+                      // onChange={(input) =>
+                      //   filterSelect('CATEGORY', input.checked, item)
+                      // }
                       checked={filter.category.includes(item.categorySlug)}
                       hideLabel={
-                        FilterCategory.includes(item.categorySlug) ? '' : 'filter'
+                        FilterCategory.includes(item.categorySlug)
+                          ? ''
+                          : 'filter'
                       }
                     />
                   </div>
@@ -191,9 +196,9 @@ const Catalog = () => {
                   >
                     <CheckBox
                       label={item.display}
-                      onChange={(input) =>
-                        filterSelect('COLOR', input.checked, item)
-                      }
+                      // onChange={(input) =>
+                      //   filterSelect('COLOR', input.checked, item)
+                      // }
                       checked={filter.color.includes(item.color)}
                       hideLabel={
                         FilterColor.includes(item.color) ? '' : 'filter'
@@ -214,13 +219,11 @@ const Catalog = () => {
                   >
                     <CheckBox
                       label={item.display}
-                      onChange={(input) =>
-                        filterSelect('SIZE', input.checked, item)
-                      }
+                      // onChange={(input) =>
+                      //   filterSelect('SIZE', input.checked, item)
+                      // }
                       checked={filter.size.includes(item.size)}
-                      hideLabel={
-                        FilterSize.includes(item.size) ? '' : 'filter'
-                      }
+                      hideLabel={FilterSize.includes(item.size) ? '' : 'filter'}
                     />
                   </div>
                 ))}
@@ -253,12 +256,13 @@ const Catalog = () => {
             >
               bộ lọc
             </Button>
-          </div>
+          </div> */}
           <div className="catalog__content">
             <InfinityList data={products}></InfinityList>
-            <div className="catalog__content__not-found">
+            {products.length === 0 && <Loading></Loading>}
+            {/* <div className="catalog__content__not-found">
               {notFound ? <NoProduct></NoProduct> : null}
-            </div>
+            </div> */}
           </div>
         </div>
       </Helmet>

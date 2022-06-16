@@ -1,6 +1,9 @@
-import React, { useEffect, useRef} from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../Asset/images/Logo-2.png';
+import logoAdmin from '../Asset/images/logoAdmin.png';
+import { GlobalState } from '../GlobalState';
 const mainNav = [
   {
     display: 'Trang chủ',
@@ -21,9 +24,13 @@ const mainNav = [
 ];
 const Header = () => {
   const { pathname } = useLocation();
+  const state = useContext(GlobalState);
+  const [isLogged] = state.userAPI.isLogged;
+  const [isAdmin] = state.userAPI.isAdmin;
+  const [cart] = state.userAPI.cart;
+  const [menu, setMenu] = useState(false);
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
   const headerRef = useRef(null);
-  
   const menuLeft = useRef(null);
   const menuToggle = () => {
     menuLeft.current.classList.toggle('active');
@@ -31,6 +38,46 @@ const Header = () => {
   const userOption = useRef(null);
   const UserOptionToggle = () => {
     userOption.current.classList.toggle('active');
+  };
+  const logoutUser = async () => {
+    await axios.get('/user/logout');
+
+    localStorage.removeItem('firstLogin');
+
+    window.location.href = '/signin';
+  };
+  const adminRouter = () => {
+    return (
+      <>
+        <div className="header__menu__right__item header__menu__item">
+          <Link to="/create_product">
+            <i className="bx bx-list-plus"></i>
+          </Link>
+        </div>
+        <div className="header__menu__right__item header__menu__item">
+          <Link to="/category">
+            <i className="bx bxs-category"></i>
+          </Link>
+        </div>
+      </>
+    );
+  };
+  const loggedRouter = () => {
+    return (
+      <>
+        <li>
+          <Link to="/history">History</Link>
+        </li>
+        <li>
+          <Link
+            to="/"
+            onClick={logoutUser}
+          >
+            Logout
+          </Link>
+        </li>
+      </>
+    );
   };
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -53,10 +100,19 @@ const Header = () => {
       <div className="container">
         <div className="header__logo">
           <Link to="/">
-            <img
-              src={logo}
-              alt=""
-            />
+            {isAdmin ? (
+              <img
+                src={logoAdmin}
+                alt=""
+                className="header__logo__admin"
+              />
+            ) : (
+              <img
+                src={logo}
+                alt=""
+                className="header__logo__user"
+              />
+            )}
           </Link>
         </div>
         <div className="header__menu">
@@ -94,10 +150,9 @@ const Header = () => {
             })}
           </div>
           <div className="header__menu__right">
+            {isAdmin && adminRouter()}
             <div className="header__menu__right__item header__menu__item">
-              <i className="bx bx-search"></i>
-            </div>
-            <div className="header__menu__right__item header__menu__item">
+              <span className="header__menu__right__item__quantity">{cart.length}</span>
               <Link to="/cart">
                 <i className="bx bx-cart"></i>
               </Link>
@@ -111,15 +166,19 @@ const Header = () => {
                 className="header__menu__right__item__user-option"
                 ref={userOption}
               >
-                <ul className='header__menu__right__item__user-option__list'>
-                <Link to='/signin'>
-                      Đăng nhập
-                  </Link>
-                  <Link to='/signup'>
-                      Đăng kí
-                  </Link>
+                <ul className="header__menu__right__item__user-option__list">
+                  {isLogged ? (
+                    loggedRouter()
+                  ) : (
+                    <li>
+                      <Link to="/signin">Đăng nhập</Link>
+                    </li>
+                  )}
                 </ul>
               </div>
+            </div>
+            <div className="header__menu__right__item header__menu__item">
+              <i className="bx bx-search"></i>
             </div>
           </div>
         </div>
